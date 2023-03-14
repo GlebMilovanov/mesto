@@ -1,0 +1,14 @@
+.element__like-btn {
+  min-width: 22px;
+  min-height: 19px;
+  background-image: url(../../../images/like-button.svg);
+  background-size: 22px 19px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  transition: opacity .2s linear;
+  margin-left: 30px;
+  padding: 0;
+}
