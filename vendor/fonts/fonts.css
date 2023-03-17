@@ -27,13 +27,3 @@
     font-weight: 900;
     font-style: normal;
 }
-
-@font-face {
-  font-family: 'Montserrat';
-  src: local("SemiBold"),
-  url('./Montserrat/Montserrat-SemiBold.woff2') format("woff2"),
-  url('./Montserrat/Montserrat-SemiBold.woff') format("woff"),
-  url('./Montserrat/Montserrat-SemiBold.ttf') format("ttf");
-  font-weight: 600;
-  font-style: normal;
-}
