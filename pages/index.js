@@ -1,13 +1,13 @@
-let page = document.querySelector('.page');
-let userName = page.querySelector('.profile__name');
-let userOccupation = page.querySelector('.profile__occupation');
-let popup = page.querySelector('.popup');
-let form = popup.querySelector('.popup__form')
-let editButton = page.querySelector('.profile__edit-btn');
-let closeButton = popup.querySelector('.popup__close-btn');
-let submitButton = form.querySelector('.popup__submit-btn');
-let popupName = form.querySelector('.popup__name');
-let popupOccupation = form.querySelector('.popup__occupation');
+const page = document.querySelector('.page');
+const userName = page.querySelector('.profile__name');
+const userOccupation = page.querySelector('.profile__occupation');
+const popup = page.querySelector('.popup');
+const form = popup.querySelector('.popup__form')
+const editButton = page.querySelector('.profile__edit-btn');
+const closeButton = popup.querySelector('.popup__close-btn');
+const submitButton = form.querySelector('.popup__submit-btn');
+const popupName = form.querySelector('.popup__name');
+const popupOccupation = form.querySelector('.popup__occupation');
 
 const openPopup = function () {
   popup.classList.add('popup_opened')
