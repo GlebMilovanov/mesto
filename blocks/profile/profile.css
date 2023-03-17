@@ -2,6 +2,7 @@
   max-width: 880px;
   width: 100%;
   padding: 40px 19px 50px;
+  box-sizing: border-box;
   margin: 0 auto;
   display: flex;
   align-items: center;
