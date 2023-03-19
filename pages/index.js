@@ -6,8 +6,8 @@ const form = popup.querySelector('.popup__form')
 const editButton = page.querySelector('.profile__edit-btn');
 const closeButton = popup.querySelector('.popup__close-btn');
 const submitButton = form.querySelector('.popup__submit-btn');
-const popupName = form.querySelector('.popup__name');
-const popupOccupation = form.querySelector('.popup__occupation');
+const popupName = form.querySelector('.popup__input_type_name');
+const popupOccupation = form.querySelector('.popup__input_type_occupation');
 
 const openPopup = function () {
   popup.classList.add('popup_opened')
