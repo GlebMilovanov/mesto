@@ -31,79 +31,20 @@
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <p class="profile__occupation">Исследователь океана</p>
-            <button type="button" aria-label="Редактировать" class="profile__edit-btn"></button>
+            <button
+              type="button"
+              aria-label="Редактировать"
+              class="profile__edit-btn"
+            ></button>
           </div>
-          <button type="button" aria-label="Добавить" class="profile__add-btn"></button>
+          <button
+            type="button"
+            aria-label="Добавить"
+            class="profile__add-btn"
+          ></button>
         </section>
         <section class="elements">
-          <ul class="elements__container">
-            <li class="element">
-              <img
-                src="./images/karachaevsk-element-image.jpg"
-                alt="Карачаевск"
-                class="element__image"
-              />
-              <div class="element__info">
-                <h2 class="element__title">Карачаевск</h2>
-                <button type="button" aria-label="Нравится" class="element__like-btn"></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="./images/elbrus-element-image.jpg"
-                alt="Эльбрус"
-                class="element__image"
-              />
-              <div class="element__info">
-                <h2 class="element__title">Эльбрус</h2>
-                <button type="button" aria-label="Нравится" class="element__like-btn"></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="./images/dombay-element-image.jpg"
-                alt="Домбай"
-                class="element__image"
-              />
-              <div class="element__info">
-                <h2 class="element__title">Домбай</h2>
-                <button type="button" aria-label="Нравится" class="element__like-btn"></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="./images/elbrus-element-image.jpg"
-                alt="Эльбрус"
-                class="element__image"
-              />
-              <div class="element__info">
-                <h2 class="element__title">Эльбрус</h2>
-                <button type="button" aria-label="Нравится" class="element__like-btn"></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="./images/dombay-element-image.jpg"
-                alt="Домбай"
-                class="element__image"
-              />
-              <div class="element__info">
-                <h2 class="element__title">Домбай</h2>
-                <button type="button" aria-label="Нравится" class="element__like-btn"></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="./images/karachaevsk-element-image.jpg"
-                alt="Карачаево-Черкесия"
-                class="element__image"
-              />
-              <div class="element__info">
-                <h2 class="element__title">Карачаево-Черкесия</h2>
-                <button type="button" aria-label="Нравится" class="element__like-btn"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="elements__container"></ul>
         </section>
       </main>
       <footer class="footer">
@@ -111,7 +52,11 @@
       </footer>
       <div class="popup">
         <div class="popup__container">
-          <button type="button" aria-label="Закрыть" class="popup__close-btn"></button>
+          <button
+            type="button"
+            aria-label="Закрыть"
+            class="popup__close-btn"
+          ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form" name="profile-form">
             <input
@@ -134,6 +79,24 @@
           </form>
         </div>
       </div>
+      <template class="element-template">
+        <li class="element">
+          <img src="#" alt="" class="element__image" />
+          <div class="element__info">
+            <h2 class="element__title"></h2>
+            <button
+              type="button"
+              aria-label="Нравится"
+              class="element__like-btn"
+            ></button>
+          </div>
+          <button
+            type="button"
+            aria-label="Удалить"
+            class="element__delete-btn"
+          ></button>
+        </li>
+      </template>
     </div>
     <script src="./pages/index.js"></script>
   </body>
