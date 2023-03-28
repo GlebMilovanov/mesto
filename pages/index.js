@@ -43,7 +43,19 @@ initialCards.forEach(function (card) {
   cardElement.querySelector(".element__title").textContent = card.name;
   cardElement.querySelector(".element__image").setAttribute("src", card.link);
 
-  cardsList.prepend(cardElement);
+
+  const deleteCardButton = cardElement.querySelector(".element__delete-btn");
+
+  deleteCardButton.addEventListener("click", function deleteCard() {
+    page.querySelector(".element").remove();
+  });
+
+  const likeCardButton = cardElement.querySelector(".element__like-btn");
+  likeCardButton.addEventListener("click", function likeCard() {
+    likeCardButton.classList.toggle("element__like-btn_active")
+  });
+
+  cardsList.append(cardElement);
 });
 
 function openPopup() {
