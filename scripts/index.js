@@ -1,3 +1,5 @@
+import { initialCards } from "./cards.js";
+
 /* page */
 const page = document.querySelector(".page");
 const userName = page.querySelector(".profile__name");
@@ -50,7 +52,7 @@ function openCardPopup() {
 }
 
 /* create card */
-function createCard({name, link}) {
+function createCard({ name, link }) {
   /* clone template */
   const cardElement = cardTemplate.cloneNode(true).querySelector(".element");
   const deleteCardButton = cardElement.querySelector(".element__delete-btn");
@@ -63,7 +65,8 @@ function createCard({name, link}) {
   cardImage.src = link;
   cardImage.alt = name;
 
-  /* open image popup function */
+  /* card functions */
+  /* open image popup */
   function openImagePopup() {
     openPopup(imagePopup);
     popupImage.src = link;
@@ -71,14 +74,20 @@ function createCard({name, link}) {
     popupImageName.textContent = name;
   }
 
-  /* cards event listeners */
-  deleteCardButton.addEventListener("click", function deleteCard(evt) {
+  /* delete card */
+  function deleteCard() {
     cardElement.remove();
-  });
+  }
 
-  likeCardButton.addEventListener("click", function likeCard(evt) {
-    evt.target.classList.toggle("element__like-btn_active");
-  });
+  /* like card */
+  function likeCard() {
+    likeCardButton.classList.toggle("element__like-btn_active");
+  }
+
+  /* cards event listeners */
+  deleteCardButton.addEventListener("click", deleteCard);
+
+  likeCardButton.addEventListener("click", likeCard);
 
   cardImage.addEventListener("click", openImagePopup);
 
@@ -117,7 +126,7 @@ function handleCardFormSubmit(evt) {
   addCard(newCard);
 
   /* reset value */
-  cardForm.reset()
+  cardForm.reset();
 
   /* close popup*/
   closePopup(cardPopup);
