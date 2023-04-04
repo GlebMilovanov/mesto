@@ -138,7 +138,17 @@ initialCards.forEach((item) => addCard(item));
 /* close popups */
 popups.forEach((popup) => {
   const closeButton = popup.querySelector(".popup__close-btn");
+
+  function closePopupByClickOverlay(evt) {
+    if (evt.target === evt.currentTarget) closePopup(popup);
+  }
+  function closePopupByClickEsc(evt) {
+    if (evt.keyCode === 27) closePopup(popup);
+  }
+
   closeButton.addEventListener("click", () => closePopup(popup));
+  popup.addEventListener("click", closePopupByClickOverlay);
+  document.addEventListener("keydown", closePopupByClickEsc);
 });
 
 /* event listeners */
