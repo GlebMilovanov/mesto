@@ -5,7 +5,7 @@ const page = document.querySelector(".page");
 const userName = page.querySelector(".profile__name");
 const userOccupation = page.querySelector(".profile__occupation");
 const buttonEditProfile = page.querySelector(".profile__edit-btn");
-const addButton = page.querySelector(".profile__add-btn");
+const buttonAddCard = page.querySelector(".profile__add-btn");
 const cardsList = page.querySelector(".elements__container");
 
 /* popups */
@@ -153,6 +153,6 @@ popups.forEach((popup) => {
 
 /* event listeners */
 buttonEditProfile.addEventListener("click", openProfilePopup);
-addButton.addEventListener("click", openCardPopup);
+buttonAddCard.addEventListener("click", openCardPopup);
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 cardForm.addEventListener("submit", handleCardFormSubmit);
