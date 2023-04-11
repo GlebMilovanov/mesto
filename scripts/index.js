@@ -35,10 +35,17 @@ const cardTemplate = page.querySelector(".element-template").content;
 /* open/close popup */
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closePopupByClickEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupByClickEsc);
+}
+
+function closePopupByClickEsc(evt) {
+  const popup = page.querySelector('.popup_opened')
+  if (evt.key === "Escape") closePopup(popup);
 }
 
 function openProfilePopup() {
@@ -139,16 +146,16 @@ initialCards.forEach((item) => addCard(item));
 popups.forEach((popup) => {
   const closeButton = popup.querySelector(".popup__close-btn");
 
+  function closePopup(popup) {
+    popup.classList.remove("popup_opened");
+  }
+
   function closePopupByClickOverlay(evt) {
     if (evt.target === evt.currentTarget) closePopup(popup);
-  }
-  function closePopupByClickEsc(evt) {
-    if (evt.keyCode === 27) closePopup(popup);
   }
 
   closeButton.addEventListener("click", () => closePopup(popup));
   popup.addEventListener("click", closePopupByClickOverlay);
-  document.addEventListener("keydown", closePopupByClickEsc);
 });
 
 /* event listeners */
