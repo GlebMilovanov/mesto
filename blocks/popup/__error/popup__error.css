@@ -5,6 +5,7 @@
   color: #FF0000;
   min-height: 30px;
   margin: 5px 0 5px;
+  visibility: hidden;
 }
 
 .popup__error:last-of-type {

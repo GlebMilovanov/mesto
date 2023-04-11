@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
     <script src="./scripts/index.js" defer type="module"></script>
+    <script src="./scripts/validate.js" defer></script>
   </head>
   <body class="root">
     <div class="page">
@@ -74,7 +75,7 @@
               maxlength="40"
               required
             />
-            <span class="popup__error popup__error_type_name"></span>
+            <span class="popup__error name-error"></span>
             <input
               type="text"
               id="occupation"
@@ -85,7 +86,7 @@
               maxlength="200"
               required
             />
-            <span class="popup__error popup__error_type_occupation"></span>
+            <span class="popup__error occupation-error"></span>
             <button type="submit" class="popup__submit-btn">Сохранить</button>
           </form>
         </div>
@@ -109,7 +110,7 @@
               maxlength="30"
               required
             />
-            <span class="popup__error popup__error_type_card-name"></span>
+            <span class="popup__error card-name-error"></span>
             <input
               type="url"
               id="card-url"
@@ -118,7 +119,7 @@
               class="popup__input popup__input_type_card-url"
               required
             />
-            <span class="popup__error popup__error_type_card-url"></span>
+            <span class="popup__error card-url-error"></span>
             <button type="submit" class="popup__submit-btn">Сохранить</button>
           </form>
         </div>
