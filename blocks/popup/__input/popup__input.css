@@ -4,17 +4,6 @@
   line-height: 1.21;
   padding: 0 0 10px;
   border: 0;
-  margin: 0 0 48px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-}
-
-.popup__input:first-of-type {
-  margin: 0 0 30px;
-}
-
-@media screen and (max-width: 618px) {
-  .popup__input {
-    margin: 0 0 45px;
-  }
 }
