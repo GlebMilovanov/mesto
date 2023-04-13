@@ -46,8 +46,6 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   document.removeEventListener("keydown", closePopupByClickEsc);
-  const form = popup.querySelector(".popup__form");
-  if (form !== null) resetErrorMessage(form);
   popup.classList.remove("popup_opened");
 }
 
@@ -58,6 +56,7 @@ function closePopupByClickEsc(evt) {
 
 function openProfilePopup() {
   openPopup(profilePopup);
+  resetErrorMessage(profileForm);
   popupName.value = userName.textContent;
   popupOccupation.value = userOccupation.textContent;
   toggleButtonState(
@@ -70,6 +69,7 @@ function openProfilePopup() {
 function openCardPopup() {
   openPopup(cardPopup);
   cardForm.reset();
+  resetErrorMessage(cardForm);
   toggleButtonState(inputsCardForm, submitButtonCardForm, validationConfig);
 }
 
@@ -89,7 +89,7 @@ function createCard({ name, link }) {
 
   /* card functions */
   /* open image popup */
-  function openImagePopup({name, link}) {
+  function openImagePopup({ name, link }) {
     openPopup(imagePopup);
     popupImage.src = link;
     popupImage.alt = name;
@@ -111,7 +111,7 @@ function createCard({ name, link }) {
 
   likeCardButton.addEventListener("click", likeCard);
 
-  cardImage.addEventListener("click", () => openImagePopup({name, link}));
+  cardImage.addEventListener("click", () => openImagePopup({ name, link }));
 
   return cardElement;
 }
