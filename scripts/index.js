@@ -6,7 +6,7 @@ const userName = page.querySelector(".profile__name");
 const userOccupation = page.querySelector(".profile__occupation");
 const buttonEditProfile = page.querySelector(".profile__edit-btn");
 const buttonAddCard = page.querySelector(".profile__add-btn");
-const cardsList = page.querySelector(".elements__container");
+const cardsContainer = page.querySelector(".elements__container");
 
 /* popups */
 const popups = page.querySelectorAll(".popup");
@@ -16,12 +16,18 @@ const profilePopup = page.querySelector(".popup_type_profile");
 const profileForm = page.querySelector(".popup__form_type_profile");
 const popupName = page.querySelector(".popup__input_type_name");
 const popupOccupation = page.querySelector(".popup__input_type_occupation");
+const inputsProfileForm = Array.from(
+  profileForm.querySelectorAll(".popup__input")
+);
+const submitButtonProfileForm = profileForm.querySelector(".popup__submit-btn");
 
 /* card popup */
 const cardPopup = page.querySelector(".popup_type_card");
 const cardForm = page.querySelector(".popup__form_type_card");
 const popupCardName = page.querySelector(".popup__input_type_card-name");
 const popupCardLink = page.querySelector(".popup__input_type_card-url");
+const inputsCardForm = Array.from(cardForm.querySelectorAll(".popup__input"));
+const submitButtonCardForm = cardForm.querySelector(".popup__submit-btn");
 
 /* image popup */
 const imagePopup = page.querySelector(".popup_type_image");
@@ -54,11 +60,17 @@ function openProfilePopup() {
   openPopup(profilePopup);
   popupName.value = userName.textContent;
   popupOccupation.value = userOccupation.textContent;
+  toggleButtonState(
+    inputsProfileForm,
+    submitButtonProfileForm,
+    validationConfig
+  );
 }
 
 function openCardPopup() {
   openPopup(cardPopup);
   cardForm.reset();
+  toggleButtonState(inputsCardForm, submitButtonCardForm, validationConfig);
 }
 
 /* create card */
@@ -77,7 +89,7 @@ function createCard({ name, link }) {
 
   /* card functions */
   /* open image popup */
-  function openImagePopup() {
+  function openImagePopup({name, link}) {
     openPopup(imagePopup);
     popupImage.src = link;
     popupImage.alt = name;
@@ -99,14 +111,14 @@ function createCard({ name, link }) {
 
   likeCardButton.addEventListener("click", likeCard);
 
-  cardImage.addEventListener("click", openImagePopup);
+  cardImage.addEventListener("click", () => openImagePopup({name, link}));
 
   return cardElement;
 }
 
 /* add card */
 function addCard(item) {
-  cardsList.prepend(createCard(item));
+  cardsContainer.prepend(createCard(item));
 }
 
 /* submit forms */
