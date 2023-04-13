@@ -40,6 +40,8 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   document.removeEventListener("keydown", closePopupByClickEsc);
+  const form = popup.querySelector(".popup__form");
+  if (form !== null) resetErrorMessage(form);
   popup.classList.remove("popup_opened");
 }
 

@@ -74,3 +74,15 @@ function enableValidation(config) {
 }
 
 enableValidation(validationConfig);
+
+/* reset error message */
+function resetErrorMessage(form) {
+  const inputs = form.querySelectorAll(".popup__input");
+
+  inputs.forEach((input) => {
+    const errorElement = form.querySelector(`.${input.name}-error`);
+
+    if (!input.validity.valid)
+      hideInputError(errorElement, input, validationConfig);
+  });
+}
