@@ -1,4 +1,4 @@
-export class Card {
+class Card {
   constructor(data, selector, openImagePopup) {
     this._link = data.link;
     this._alt = data.name;
