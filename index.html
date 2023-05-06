@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
     <script src="./scripts/index.js" defer type="module"></script>
-    <script src="./scripts/validate.js" defer></script>
   </head>
   <body class="root">
     <div class="page">
@@ -99,7 +98,11 @@
             class="popup__close-btn"
           ></button>
           <h2 class="popup__title">Новое место</h2>
-          <form class="popup__form popup__form_type_card" name="card-form" novalidate>
+          <form
+            class="popup__form popup__form_type_card"
+            name="card-form"
+            novalidate
+          >
             <input
               type="text"
               id="card-name"
