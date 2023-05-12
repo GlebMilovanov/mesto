@@ -44,8 +44,7 @@ function closePopup(popup) {
 }
 
 function closePopupByClickEsc(evt) {
-  const popup = page.querySelector('.popup_opened');
-  if (evt.key === 'Escape') closePopup(popup);
+  if (evt.key === 'Escape') closePopup(page.querySelector('.popup_opened'));
 }
 
 function openProfilePopup() {
@@ -68,6 +67,12 @@ function openImagePopup(name, link) {
   popupImageName.textContent = name;
 }
 
+/* create new card */
+function createNewCard(item, selector, openImagePopup) {
+  const card = new Card(item, selector, openImagePopup);
+  return card.generate();
+}
+
 /* submit forms */
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -87,10 +92,7 @@ function handleCardFormSubmit(evt) {
   };
 
   /* add card */
-  const card = new Card(newCard, '.element-template', openImagePopup);
-  const cardElement = card.generate();
-
-  cardsContainer.prepend(cardElement);
+  cardsContainer.prepend(createNewCard(newCard, '.element-template', openImagePopup));
   cardForm.reset();
 
   closePopup(cardPopup);
@@ -98,17 +100,8 @@ function handleCardFormSubmit(evt) {
 
 /* add initial cards */
 initialCards.forEach((item) => {
-  const card = new Card(item, '.element-template', openImagePopup);
-  const cardElement = card.generate();
-
-  cardsContainer.prepend(cardElement);
+  cardsContainer.prepend(createNewCard(item, '.element-template', openImagePopup));
 });
-
-const profileFormValidation = new FormValidator(validationConfig, profileForm);
-profileFormValidation.enableValidation();
-
-const cardFormValidation = new FormValidator(validationConfig, cardForm);
-cardFormValidation.enableValidation();
 
 /* close popups */
 popups.forEach((popup) => {
@@ -121,6 +114,13 @@ popups.forEach((popup) => {
   closeButton.addEventListener('click', () => closePopup(popup));
   popup.addEventListener('click', closePopupByClickOverlay);
 });
+
+/* add form validation */
+const profileFormValidation = new FormValidator(validationConfig, profileForm);
+profileFormValidation.enableValidation();
+
+const cardFormValidation = new FormValidator(validationConfig, cardForm);
+cardFormValidation.enableValidation();
 
 /* event listeners */
 buttonEditProfile.addEventListener('click', openProfilePopup);
