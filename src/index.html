@@ -8,16 +8,14 @@
       content="Интерактивная страница и способ поделиться впечатлениями"
     />
     <meta name="author" content="Глеб Милованов" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
-    <script src="./scripts/index.js" defer type="module"></script>
   </head>
   <body class="root">
     <div class="page">
       <header class="header">
         <a href="#" class="header__link"
           ><img
-            src="./images/logo-header.svg"
+            src="<%=require('./images/logo-header.svg')%>"
             alt="логотип"
             class="header__logo"
         /></a>
@@ -25,7 +23,7 @@
       <main class="content">
         <section class="profile">
           <img
-            src="./images/profile-image.jpg"
+            src="<%=require('./images/profile-image.jpg')%>"
             alt="фото профиля"
             class="profile__image"
           />
@@ -106,23 +104,23 @@
             <input
               type="text"
               id="card-name"
-              name="card-name"
+              name="name"
               placeholder="Название"
               class="popup__input popup__input_type_card-name"
               minlength="2"
               maxlength="30"
               required
             />
-            <span class="popup__error card-name-error"></span>
+            <span class="popup__error name-error"></span>
             <input
               type="url"
               id="card-url"
-              name="card-url"
+              name="link"
               placeholder="Ссылка на картинку"
               class="popup__input popup__input_type_card-url"
               required
             />
-            <span class="popup__error card-url-error"></span>
+            <span class="popup__error link-error"></span>
             <button type="submit" class="popup__submit-btn">Сохранить</button>
           </form>
         </div>

@@ -1,5 +1,8 @@
+import { data } from 'jquery';
+
 class Card {
   constructor(data, selector, openImagePopup) {
+    this._data = data;
     this._link = data.link;
     this._alt = data.name;
     this._name = data.name;
@@ -15,27 +18,18 @@ class Card {
     this._cardTitle = this._card.querySelector('.element__title');
   }
 
-  /*   _getElement() {
-    const cardElement = document
-      .querySelector(this._selector)
-      .content.cloneNode(true)
-      .querySelector('.element');
-
-    return cardElement;
-  } */
-
   _likeCard() {
     this._likeCardButton.classList.toggle('element__like-btn_active');
   }
 
   _deleteCard() {
     this._card.remove();
-    this._card = null
+    this._card = null;
   }
 
   _setEventListeners() {
     this._cardImage.addEventListener('click', () =>
-      this._openImagePopup(this._name, this._link)
+      this._openImagePopup(this._data)
     );
     this._likeCardButton.addEventListener('click', () => this._likeCard());
     this._deleteCardButton.addEventListener('click', () => this._deleteCard());

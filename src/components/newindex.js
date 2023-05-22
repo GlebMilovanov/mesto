@@ -1,35 +1,34 @@
-import initialCards from './initialCards.js';
+
+
+
+
+
+
+
+import initialCards from '../scripts/initialCards.js';
 import validationConfig from './validationConfig.js';
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
-
-/* page */
-const page = document.querySelector('.page');
-const userName = page.querySelector('.profile__name');
-const userOccupation = page.querySelector('.profile__occupation');
-const buttonEditProfile = page.querySelector('.profile__edit-btn');
-const buttonAddCard = page.querySelector('.profile__add-btn');
-const cardsContainer = page.querySelector('.elements__container');
-
-/* popups */
-const popups = page.querySelectorAll('.popup');
-
-/* profile popup */
-const profilePopup = page.querySelector('.popup_type_profile');
-const profileForm = page.querySelector('.popup__form_type_profile');
-const popupName = page.querySelector('.popup__input_type_name');
-const popupOccupation = page.querySelector('.popup__input_type_occupation');
-
-/* card popup */
-const cardPopup = page.querySelector('.popup_type_card');
-const cardForm = page.querySelector('.popup__form_type_card');
-const popupCardName = page.querySelector('.popup__input_type_card-name');
-const popupCardLink = page.querySelector('.popup__input_type_card-url');
-
-/* image popup */
-const imagePopup = page.querySelector('.popup_type_image');
-const popupImage = imagePopup.querySelector('.popup__image');
-const popupImageName = imagePopup.querySelector('.popup__image-name');
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import {
+  page,
+  userName,
+  userOccupation,
+  buttonEditProfile,
+  buttonAddCard,
+  cardsContainer,
+  popups,
+  profilePopup,
+  profileForm,
+  popupName,
+  popupOccupation,
+  cardPopup,
+  cardForm,
+  popupCardName,
+  popupCardLink,
+  imagePopup,
+  popupImage,
+  popupImageName,
+} from '../utils/constants.js';
 
 /* functions */
 /* open/close popup */
@@ -92,7 +91,9 @@ function handleCardFormSubmit(evt) {
   };
 
   /* add card */
-  cardsContainer.prepend(createNewCard(newCard, '.element-template', openImagePopup));
+  cardsContainer.prepend(
+    createNewCard(newCard, '.element-template', openImagePopup)
+  );
   cardForm.reset();
 
   closePopup(cardPopup);
@@ -100,7 +101,9 @@ function handleCardFormSubmit(evt) {
 
 /* add initial cards */
 initialCards.forEach((item) => {
-  cardsContainer.prepend(createNewCard(item, '.element-template', openImagePopup));
+  cardsContainer.prepend(
+    createNewCard(item, '.element-template', openImagePopup)
+  );
 });
 
 /* close popups */
