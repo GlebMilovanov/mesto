@@ -9,7 +9,6 @@ import {
   userNameSelector,
   userOccupationSelector,
   cardsContainerSelector,
-  initialCards,
   cardTemplateSelector,
   imagePopupSelector,
   profilePopupSelector,
@@ -19,7 +18,8 @@ import {
   profileForm,
   cardForm,
 } from '../utils/constants.js';
-import validationConfig from '../components/validationConfig';
+import validationConfig from '../utils/validationConfig';
+import initialCards from '../utils/initialCards';
 import { createNewCard } from '../utils/utils.js';
 
 /* set/get user info */
@@ -34,7 +34,11 @@ const cardsList = new Section(
   {
     data: initialCards,
     renderer: (item) => {
-      const newCard = createNewCard(item, cardTemplateSelector, imagePopup.open);
+      const newCard = createNewCard(
+        item,
+        cardTemplateSelector,
+        imagePopup.open
+      );
       cardsList.addItem(newCard);
     },
   },
@@ -64,7 +68,11 @@ buttonEditProfile.addEventListener('click', () => {
 const cardPopup = new PopupWithForm(cardPopupSelector, (evt) => {
   evt.preventDefault();
   const newCardInfo = cardPopup.getInputValues();
-  const newCard = createNewCard(newCardInfo, cardTemplateSelector, imagePopup.open);
+  const newCard = createNewCard(
+    newCardInfo,
+    cardTemplateSelector,
+    imagePopup.open
+  );
   cardsList.addItem(newCard);
   cardPopup.close();
 });
