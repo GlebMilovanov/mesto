@@ -52,6 +52,7 @@ const profilePopup = new PopupWithForm(profilePopupSelector, (evt) => {
   userInfo.setUserInfo(profilePopup.getInputValues());
   profilePopup.close();
 });
+profilePopup.setEventListeners();
 
 const profileFormValidation = new FormValidator(validationConfig, profileForm);
 profileFormValidation.enableValidation();
@@ -60,7 +61,6 @@ buttonEditProfile.addEventListener('click', () => {
   profileFormValidation.resetErrorMessage();
   profilePopup.setInputValue(userInfo.getUserInfo());
   profilePopup.open();
-  profilePopup.setEventListeners();
 });
 
 /* card popup */
@@ -76,6 +76,7 @@ const cardPopup = new PopupWithForm(cardPopupSelector, (evt) => {
   cardsList.addItem(newCard);
   cardPopup.close();
 });
+cardPopup.setEventListeners();
 
 const cardFormValidation = new FormValidator(validationConfig, cardForm);
 cardFormValidation.enableValidation();
@@ -83,5 +84,4 @@ cardFormValidation.enableValidation();
 buttonAddCard.addEventListener('click', () => {
   cardFormValidation.resetErrorMessage();
   cardPopup.open();
-  cardPopup.setEventListeners();
 });

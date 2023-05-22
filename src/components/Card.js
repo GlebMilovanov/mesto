@@ -1,5 +1,3 @@
-import { data } from 'jquery';
-
 class Card {
   constructor(data, selector, openImagePopup) {
     this._data = data;
