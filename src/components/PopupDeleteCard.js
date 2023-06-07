@@ -1,24 +1,11 @@
 import Popup from './Popup';
 
-export default class PopupWithForm extends Popup {
+export default class PopupDeleteCard extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
-    this._inputs = Array.from(this._form.querySelectorAll('.popup__input'));
     this._submitButton = this._form.querySelector('.popup__submit-btn');
     this._defaultSubmitButtonText = this._submitButton.textContent;
-  }
-
-  getInputValues() {
-    this._formValues = this._inputs.reduce((obj, input) => {
-      obj[input.name] = input.value;
-      return obj;
-    }, {});
-    return this._formValues;
-  }
-
-  setInputValue(data) {
-    this._inputs.forEach((input) => (input.value = data[input.name]));
   }
 
   setEventListeners() {
@@ -26,7 +13,7 @@ export default class PopupWithForm extends Popup {
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._submitButton.textContent = `${this._submitButton.textContent}...`;
-      this._handleFormSubmit();
+      this._handleFormSubmit(this._element);
     });
   }
 
@@ -34,8 +21,8 @@ export default class PopupWithForm extends Popup {
     this._submitButton.textContent = this._defaultSubmitButtonText;
   }
 
-  close() {
-    super.close();
-    this._form.reset();
-  }
+  open = (element) => {
+    super.open();
+    this._element = element;
+  };
 }
