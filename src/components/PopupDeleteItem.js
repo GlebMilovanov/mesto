@@ -1,6 +1,6 @@
 import Popup from './Popup';
 
-export default class PopupDeleteCard extends Popup {
+export default class PopupDeleteItem extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;

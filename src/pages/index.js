@@ -5,7 +5,7 @@ import PopupWithForm from '../components/PopupWithForm';
 import PopupWithImage from '../components/PopupWithImage';
 import FormValidator from '../components/FormValidator';
 import UserInfo from '../components/UserInfo';
-import PopupDeleteCard from '../components/PopupDeleteCard';
+import PopupDeleteItem from '../components/PopupDeleteItem';
 import Api from '../components/Api';
 import {
   userNameSelector,
@@ -69,17 +69,17 @@ const imagePopup = new PopupWithImage(imagePopupSelector);
 imagePopup.setEventListeners();
 
 /* delete popup */
-const deletePopup = new PopupDeleteCard(deletePopupSelector, (element) => {
+const popupConfirmationDelete = new PopupDeleteItem(deletePopupSelector, (element) => {
   api
     .deleteCard(element.getCardId())
     .then(() => {
       element.deleteCard();
-      deletePopup.close();
+      popupConfirmationDelete.close();
     })
     .catch((err) => console.error(`Ошибка: ${err}`))
-    .finally(() => deletePopup.setDefaultSubmitButtonText());
+    .finally(() => popupConfirmationDelete.setDefaultSubmitButtonText());
 });
-deletePopup.setEventListeners();
+popupConfirmationDelete.setEventListeners();
 
 /* create card's list section */
 const cardsList = new Section(
@@ -89,7 +89,7 @@ const cardsList = new Section(
         item,
         cardTemplateSelector,
         imagePopup.open,
-        deletePopup.open,
+        popupConfirmationDelete.open,
         handleLikeCard,
         myId
       );
@@ -131,7 +131,7 @@ const cardPopup = new PopupWithForm(cardPopupSelector, () => {
           cardData,
           cardTemplateSelector,
           imagePopup.open,
-          deletePopup.open,
+          popupConfirmationDelete.open,
           handleLikeCard,
           myId
         )
